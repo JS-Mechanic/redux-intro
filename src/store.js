@@ -26,3 +26,13 @@ function reducer(state = initialState, action) {
 			return state;
 	}
 }
+
+const store = createStore(reducer);
+store.dispatch({type: "account/deposit", payload: 500});
+console.log(store.getState());
+store.dispatch({type: "account/withdrawal", payload: 200});
+console.log(store.getState());
+store.dispatch({type: "account/requestLoan", payload: {amount: 1000, purpose: "Buy a car"}});
+console.log(store.getState());
+store.dispatch({type: "account/payLoan"});
+console.log(store.getState());

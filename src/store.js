@@ -79,3 +79,21 @@ store.dispatch(requestLoan(2000, "Buy a macbook"));
 console.log(store.getState());
 store.dispatch(payLoan());
 console.log(store.getState());
+
+// Action Creator Functions:
+function createCustomer(fullName, nationalID) {
+	return {
+		type: "customer/createCustomer",
+		payload: {fullName, nationalID, createdAt: new Date().toISOString()},
+	};
+}
+
+function updateName(fullName) {
+	return {type: "customer/updateName", payload: fullName};
+}
+
+store.dispatch(createCustomer("Milad Sadeghi", "9871234321"));
+console.log(store.getState());
+
+store.dispatch(updateName("Milad SadeghiDM"));
+console.log(store.getState());

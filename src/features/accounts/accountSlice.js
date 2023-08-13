@@ -7,7 +7,7 @@ const initialStateAccount = {
 };
 
 // Account reducer function
-export default function AccountReducer(state = initialStateAccount, action) {
+export default function accountReducer(state = initialStateAccount, action) {
 	switch (action.type) {
 		case "account/deposit":
 			return {...state, balance: state.balance + action.payload, isLoading: false};
